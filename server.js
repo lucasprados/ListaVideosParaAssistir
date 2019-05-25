@@ -1,6 +1,5 @@
-const app = require('./src/config/custom-express');
+const app = require('./config/custom-express')();
 
-app.listen(3000, function() {
+app.listen(3000, () => {
     console.log(`Servidor rodando na porta 3000`);
-    //require('./src/app/api/api')
 });

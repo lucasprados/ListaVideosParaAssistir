@@ -1,6 +1,7 @@
 <html>
   <head>
    <script src="https://apis.google.com/js/api.js"></script>
+   <script src="../js/teste.js"></script>
     <script>
          function loadClient() {
             gapi.client.setApiKey("AIzaSyC7Miok7FO3Mzzxh5en4OFwFKCHff2xNfA");
@@ -22,10 +23,11 @@
                     function(err) { console.error("Execute error", err); });
         }
         gapi.load("client");
+      
     </script>
   </head>
   <body>
-    <button onclick="loadClient()">load</button>
+    <button onclick="teste()">load</button>
 <button onclick="execute()">execute</button>
   </body>
 </html>

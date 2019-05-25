@@ -15,15 +15,15 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><script src=\"https://apis.google.com/js/api.js\"></script><script>\r\n         function loadClient() {\r\n            gapi.client.setApiKey(\"AIzaSyC7Miok7FO3Mzzxh5en4OFwFKCHff2xNfA\");\r\n            return gapi.client.load(\"https://content.googleapis.com/discovery/v1/apis/youtube/v3/rest\")\r\n                .then(function() { console.log(\"GAPI client loaded for API\"); },\r\n                    function(err) { console.error(\"Error loading GAPI client for API\", err); });\r\n        }\r\n        // Make sure the client is loaded before calling this method.\r\n        function execute() {\r\n            return gapi.client.youtube.search.list({\r\n            \"part\": \"snippet\",\r\n            \"maxResults\": 50,\r\n            \"q\": \"Alanzoka\"\r\n            })\r\n                .then(function(response) {\r\n                        // Handle the results here (response.result has the parsed body).\r\n                        console.log(\"Response\", response);\r\n                    },\r\n                    function(err) { console.error(\"Execute error\", err); });\r\n        }\r\n        gapi.load(\"client\");\r\n    </script></head><body>");
+  out.w("<html><head><script src=\"https://apis.google.com/js/api.js\"></script><script src=\"../js/teste.js\"></script><script>\r\n         function loadClient() {\r\n            gapi.client.setApiKey(\"AIzaSyC7Miok7FO3Mzzxh5en4OFwFKCHff2xNfA\");\r\n            return gapi.client.load(\"https://content.googleapis.com/discovery/v1/apis/youtube/v3/rest\")\r\n                .then(function() { console.log(\"GAPI client loaded for API\"); },\r\n                    function(err) { console.error(\"Error loading GAPI client for API\", err); });\r\n        }\r\n        // Make sure the client is loaded before calling this method.\r\n        function execute() {\r\n            return gapi.client.youtube.search.list({\r\n            \"part\": \"snippet\",\r\n            \"maxResults\": 50,\r\n            \"q\": \"Alanzoka\"\r\n            })\r\n                .then(function(response) {\r\n                        // Handle the results here (response.result has the parsed body).\r\n                        console.log(\"Response\", response);\r\n                    },\r\n                    function(err) { console.error(\"Execute error\", err); });\r\n        }\r\n        gapi.load(\"client\");\r\n      \r\n    </script></head><body>");
 
   component_globals_tag({}, out);
 
-  out.w("<button onclick=\"loadClient()\">load</button><button onclick=\"execute()\">execute</button>");
+  out.w("<button onclick=\"teste()\">load</button><button onclick=\"execute()\">execute</button>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "7");
+  await_reorderer_tag({}, out, __component, "8");
 
   out.w("</body></html>");
 }

@@ -2,7 +2,7 @@
   "name": "ahgora-teste",
   "version": "1.0.0",
   "description": "Teste pesquisa Youtube",
-  "main": "server.js",
+  "main": "rotas.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js --ignore *.marko.js"
@@ -10,7 +10,9 @@
   "author": "Lucas Prado dos Santos",
   "license": "ISC",
   "dependencies": {
+    "consign": "^0.1.6",
     "express": "4.16.3",
+    "googleapis": "^40.0.0",
     "marko": "^4.13.4-1",
     "request": "^2.88.0"
   },
