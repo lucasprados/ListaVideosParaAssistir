@@ -21,6 +21,7 @@ retornarListaVideo('Alanzoka')
 .catch((err) => console.log('err retornarListaVideo: ', err));
 
 function retornarListaVideo(query){
+	
 	return new Promise((resolve, reject) => {
 		videosList = [];
 		youtube.search.list({
