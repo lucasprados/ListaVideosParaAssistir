@@ -1,8 +1,5 @@
 const videosAPI = require('../videosAPI')();
-let videosLista = [];
 
-videosAPI.retornarListaVideoPesquisa({consulta:'Alanzoka', videosLista})
-.then(() => {
-	videosLista;
-}).catch((err) => console.log('erro retornarListaVideo: ', err));
-console.log('Retorna lista'+videosLista[0]);
+videosAPI.retornarListaVideoPesquisa('Alanzoka')
+.then((resposte) => console.log(videosList[0]))
+.catch((err) => console.log('err retornarListaVideo: ', err));

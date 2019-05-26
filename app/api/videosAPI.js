@@ -1,10 +1,8 @@
 const {google} = require('googleapis');
-const moment = require('moment');
 const chaveAutenticacao = require('./chaveAutenticacao.json');
 const videosUtils = require('../utils/videosUtils')();
 const youtube = getAuthenticatedAPI();
 const itensPorPagina = videosUtils.defineQuantidadeItensPorPagina();
-
 
 function getAuthenticatedAPI() {
 	const CHAVE_API_GOOGLE = chaveAutenticacao.CHAVE_API_GOOGLE;
@@ -17,8 +15,8 @@ function getAuthenticatedAPI() {
 	return youtube;
 }
 
-function retornarListaVideoPesquisa( {consulta, nPagina, tokenProximaPagina,videosLista: videosLista} ){
-	videosLista = [];
+function retornarListaVideoPesquisa( {consulta, nPagina, tokenProximaPagina,videosList} ){
+	videosList = [];
 	if (!nPagina) nPagina = 0;
 	return new Promise((resolve, reject) => {
 		youtube.search.list({
@@ -30,18 +28,16 @@ function retornarListaVideoPesquisa( {consulta, nPagina, tokenProximaPagina,vide
 			if (err) reject({'err': err});
 			let tokenProximaPagina = response.data.nextPageToken;
 			for (item of response.data.items) {
-				videosLista.push({
+				videosList.push({
 					'id': item.id.videoId,
 					'title': item.snippet.title,
 					'description': item.snippet.description,
-					'duration':0,
 				});
 			}
 			if(tokenProximaPagina && nPagina < itensPorPagina.length){
-				retornarListaVideoPesquisa({consulta:consulta ,nPagina:(nPagina+1) ,tokenProximaPagina:tokenProximaPagina,videosList:videosLista});
+				retornarListaVideoPesquisa({consulta:consulta, nPagina:(nPagina+1), tokenProximaPagina:tokenProximaPagina, videosList:videosList});
 			}else{
-				console.log('Teste');
-				return resolve();
+				return resolve(videosList);				
 			}
 		});
 	});
@@ -61,12 +57,11 @@ function insereDuracaoVideos({nItem, videos: videosSemDuracao}){
 			if((nItem+1) < videosSemDuracao.length){
 				insereDuracaoVideos({nItem: (nItem+1), videos: videosSemDuracao});
 			}else{
-				return resolve();		
+				return resolve(videosSemDuracao);		
 			}
 		})				
 	});
 }
-
 
 module.exports = () => {
 	return {retornarListaVideoPesquisa,insereDuracaoVideos,}

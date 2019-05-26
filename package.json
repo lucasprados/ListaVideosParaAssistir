@@ -5,16 +5,14 @@
   "main": "rotas.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js --ignore *.marko.js"
+    "start": "nodemon server.js"
   },
   "author": "Lucas Prado dos Santos",
   "license": "ISC",
   "dependencies": {
     "consign": "^0.1.6",
     "express": "4.16.3",
-    "google-auth-library": "^4.0.0",
     "googleapis": "^40.0.0",
-    "marko": "^4.13.4-1",
     "moment": "^2.24.0",
     "request": "^2.88.0"
   },
