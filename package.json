@@ -12,6 +12,7 @@
   "dependencies": {
     "consign": "^0.1.6",
     "express": "4.16.3",
+    "google-auth-library": "^4.0.0",
     "googleapis": "^40.0.0",
     "marko": "^4.13.4-1",
     "request": "^2.88.0"
