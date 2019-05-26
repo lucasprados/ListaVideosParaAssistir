@@ -15,6 +15,7 @@
     "google-auth-library": "^4.0.0",
     "googleapis": "^40.0.0",
     "marko": "^4.13.4-1",
+    "moment": "^2.24.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
