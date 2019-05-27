@@ -1,10 +1,10 @@
 const {google} = require('googleapis');
 const chaveAutenticacao = require('./chaveAutenticacao.json');
 const videosUtils = require('../utils/videosUtils')();
-const youtube = getAuthenticatedAPI();
+const youtube = atenticaAPI();
 const itensPorPagina = videosUtils.defineQuantidadeItensPorPagina();
 
-function getAuthenticatedAPI() {
+function atenticaAPI() {
 	const CHAVE_API_GOOGLE = chaveAutenticacao.CHAVE_API_GOOGLE;
 
 	const youtube = google.youtube({
@@ -18,7 +18,7 @@ function getAuthenticatedAPI() {
 function retornarListaVideoPesquisa( {consulta, nPagina, tokenProximaPagina,videosList} ){
 	videosList = [];
 	if (!nPagina) nPagina = 0;
-	return new Promise((resolve, reject) => {
+	return new Promise( function (resolve, reject) {
 		youtube.search.list({
 			part: 'snippet',
 			type: 'video',

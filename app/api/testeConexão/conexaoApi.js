@@ -1,5 +1,12 @@
 const videosAPI = require('../videosAPI')();
 
-videosAPI.retornarListaVideoPesquisa('Alanzoka')
-.then((resposte) => console.log(videosList[0]))
-.catch((err) => console.log('err retornarListaVideo: ', err));
+videoPromise = videosAPI.retornarListaVideoPesquisa('Alanzoka');
+
+
+videoPromise.then(JSON.parse)
+.then(function(result) {
+	console.log(result);})
+.catch((err) => 
+	console.log('err retornarListaVideo: ', err));
+
+console.log(videos.length);
